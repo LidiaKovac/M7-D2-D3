@@ -1,0 +1,107 @@
+@font-face {
+  font-family: Helvetica;
+  src: url("../fonts/Helvetica.ttf");
+}
+.res-wrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+  .description-det {
+    height: 700px;
+    overflow-y: scroll;
+  }
+  .no-jobs-found {
+      font-family: Helvetica;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      font-size: 12pt;
+      .c404 {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          font-size: 55pt;
+          font-family: Helvetica;
+
+      }
+  }
+  .job-list {
+    width: 30%;
+    height: 100%;
+    background-color: #dce0e8;
+    padding-top: 50px;
+    overflow-y: scroll;
+  }
+  .job-details {
+    width: 70%;
+    height: 100%;
+    .selected-job {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+
+      padding: 50px;
+
+      .row-title-logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: Helvetica;
+        font-size: 15pt;
+        font-weight: bold;
+      }
+      .logo-det {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        padding: 20px;
+      }
+      .wrap-main-det {
+        display: flex;
+        flex-direction: column;
+        .company-location-det {
+          font-weight: normal;
+          font-size: 12pt;
+          display: flex;
+          flex-direction: row;
+          .company-desc {
+            padding-right: 20px;
+            font-family: Helvetica;
+            .link-det {
+              color: #20368f !important;
+            }
+          }
+        }
+      }
+      .apply-btn {
+          width: 150%;
+        margin-bottom: 20px;
+        margin-left: -50px;
+        padding-left: 50px;
+        font-weight: bold;
+        font-family: Helvetica;
+        background-color: #B7C0D2;
+      }
+    }
+    .no-job {
+      width: 100px;
+    }
+  }
+  .oh-no {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica;
+  }
+}

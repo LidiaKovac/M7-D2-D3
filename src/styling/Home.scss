@@ -1,0 +1,28 @@
+@font-face {
+    font-family: callToAction;
+    src: url('../fonts/Big\ Caslon\ Medium.ttf');
+  }
+.home-wrap {
+    display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    .call-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 900px;
+        height: 200px;
+        background-color: #CBD4E6;
+        border-radius: 24px;
+        .call-to-action {
+            font-family: callToAction;
+            font-size: 75px;
+            color: #707070;
+        }
+    }
+    
+}
