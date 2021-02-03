@@ -6,14 +6,27 @@
   width: 100%;
   height: 150px;
   padding-left: 50px;
+  padding-right: 15px;
   font-family: Helvetica;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   
   &:hover {
       background-color: #829CD0;
       transition: .5s;
+  }
+  .like-icon {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .heart{
+width: 30px;
+height: 30px;
+    }
   }
   .logo-title {
     display: flex;
