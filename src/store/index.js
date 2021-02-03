@@ -1,13 +1,10 @@
-import { createStore } from "redux";
-import rootReducer from "../reducers";
+import {
+  createStore
+} from "redux";
+import rootReducer from "../reducer";
 
 const initialState = {
-  cart: {
-    products: [],
-  },
-  user: {
-    username: null,
-  },
+  fav: []
 };
 
 export default function configureStore() {

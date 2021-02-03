@@ -1,0 +1,34 @@
+.modal-fav {
+    font-family: Helvetica;
+}
+
+.close-btn {
+    width: 130px;
+    height: 40px;
+    background-color: #20368f;
+    color: #B7C0D2;
+    font-size: 10pt;
+    font-family: Helvetica;
+    border: none;
+
+    &:hover {
+
+        background-color: #B7C0D2;
+        color: #20368f;
+    }
+}
+
+.save-btn {
+    width: 130px;
+    height: 40px;
+    background-color: #B7C0D2;
+    color: #20368f;
+    font-size: 10pt;
+    font-family: Helvetica;
+    border: none;
+
+    &:hover {
+        background-color: #20368f;
+        color: #B7C0D2;
+    }
+}

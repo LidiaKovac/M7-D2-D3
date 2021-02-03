@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import "../styling/Details.scss";
 import Job from "./Job";
 import noJob from "../assets/robot.png";
@@ -7,9 +8,12 @@ import PlaceHolder from "../assets/PH.png";
 import { ImLocation2 } from "react-icons/im";
 import notFound from "../assets/404.png";
 import parse from "html-react-parser";
+import Favorites from './Favorites'
+import { Button } from "react-bootstrap";
 
 class Details extends React.Component {
   state = {
+    show: false,
     position: "",
     location: "",
   };
@@ -30,27 +34,30 @@ class Details extends React.Component {
   changeJob = (e) => {
     console.log("OK");
   };
+  handleModal = () => {
+    this.setState({ show: !this.state.show })
+  }
   render() {
     return (
       <div className="res-wrap">
         <div className="header"></div>
         <div className="job-list">
           {this.state.loading === true ? (
-              <div className='loader-wrap'>
-            <div class="lds-spinner">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
+            <div className='loader-wrap'>
+              <div class="lds-spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
             </div>
           ) : this.state.jobs && this.state.jobs.length > 0 ? (
             this.state.jobs.map((job, index) => {
@@ -59,22 +66,20 @@ class Details extends React.Component {
                   {" "}
                   <Job
                     key={index}
-                    title={job.title}
-                    img={job.company_logo ? job.company_logo : PlaceHolder}
-                    company={job.company}
-                    location={job.location}
+                    job={job}
+                    showHeart={true}
                   />{" "}
                 </div>
               );
             })
           ) : (
-            <div className="no-jobs-found">
-              <div className="c404">
-                <img src={notFound} /> 404{" "}
-              </div>
+                <div className="no-jobs-found">
+                  <div className="c404">
+                    <img src={notFound} /> 404{" "}
+                  </div>
               There are no jobs available in this area!
-            </div>
-          )}
+                </div>
+              )}
         </div>
         <div className="job-details">
           {this.state.selected ? (
@@ -117,13 +122,17 @@ class Details extends React.Component {
               </div>
             </div>
           ) : (
-            <div className="oh-no">
-              {" "}
-              <img src={noJob} className="no-job"></img> Oh no! Seems like you
+              <div className="oh-no">
+                {" "}
+                <img src={noJob} className="no-job"></img> Oh no! Seems like you
               did not select a job yet!{" "}
-            </div>
-          )}
+              </div>
+            )}
         </div>
+        <Button className='show-fav rounded-pill' onClick={() => this.handleModal()}>
+          SHOW FAV
+        </Button>
+        <Favorites show={this.state.show} handleModal={this.handleModal} />
       </div>
     );
   }
