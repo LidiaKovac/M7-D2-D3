@@ -61,7 +61,7 @@ class Details extends React.Component {
           ) : (
                 <div className="no-jobs-found">
                   <div className="c404">
-                    <img src={notFound} /> 404{" "}
+                    <img alt='not_found' src={notFound} /> 404{" "}
                   </div>
               There are no jobs available in this area!
                 </div>
@@ -72,6 +72,7 @@ class Details extends React.Component {
             <div className="selected-job">
               <div className="row-title-logo">
                 <img
+                  alt ='company_logo'
                   src={
                     this.state.selected.company_logo
                       ? this.state.selected.company_logo
@@ -110,7 +111,10 @@ class Details extends React.Component {
           ) : (
               <div className="oh-no">
                 {" "}
-                <img src={noJob} className="no-job"></img> Oh no! Seems like you
+                <img 
+                  alt='no_job_selected'
+                  src={noJob} 
+                  className="no-job"></img> Oh no! Seems like you
               did not select a job yet!{" "}
               </div>
             )}

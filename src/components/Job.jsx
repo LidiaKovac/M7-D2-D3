@@ -35,6 +35,7 @@ class Job extends React.Component {
                 ? this.props.job.company_logo
                 : PlaceHolder
             }
+            alt='company_logo'
             className="logo"
           />
           <div className="info-job">
@@ -47,7 +48,7 @@ class Job extends React.Component {
           </div>
         </div>
         {this.props.showHeart === true ? (
-          this.state[this.props.job.id] == true
+          this.state[this.props.job.id] === true
         ? <div 
             className="like-icon" 
             onClick={() => {this.props.removeFromFav(this.props.job); this.setState({[this.props.job.id]: false})}}>

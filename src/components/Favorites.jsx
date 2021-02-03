@@ -4,7 +4,6 @@ import "../styling/Favorites.scss"
 import { Button, Modal } from 'react-bootstrap'
 import { connect } from "react-redux";
 import Job from "./Job";
-import PlaceHolder from "../assets/PH.png";
 
 
 const mapStateToProps = (state) => state;

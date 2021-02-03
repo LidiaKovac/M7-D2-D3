@@ -6,7 +6,7 @@ class Loader extends React.Component {
   render() {
     return (
       <div className="loader-wrap">
-        <div class="lds-spinner">
+        <div className="lds-spinner">
           <div></div>
           <div></div>
           <div></div>
