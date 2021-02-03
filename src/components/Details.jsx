@@ -62,10 +62,10 @@ class Details extends React.Component {
           ) : this.state.jobs && this.state.jobs.length > 0 ? (
             this.state.jobs.map((job, index) => {
               return (
-                <div onClick={() => this.setState({ selected: job })}>
+                <div key={`${index}D`} onClick={() => this.setState({ selected: job })}>
                   {" "}
                   <Job
-                    key={index}
+                    
                     job={job}
                     showHeart={true}
                   />{" "}

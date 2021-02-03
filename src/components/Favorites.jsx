@@ -28,7 +28,7 @@ class Favorites extends React.Component {
                     </Modal.Header>
                     <Modal.Body className='modal-fav'>
                         {this.state.fav ? this.state.fav.map((job, index) => <Job
-                            key={index}
+                            key={`${index}F`}
                             job={job}
                             showHeart={false}
                         />) : console.log("OK")}
@@ -36,9 +36,6 @@ class Favorites extends React.Component {
                     <Modal.Footer>
                         <Button className='close-btn' onClick={this.props.handleModal}>
                             Close
-						</Button>
-                        <Button className='save-btn' onClick={this.props.handleModal}>
-                            Save Changes
 						</Button>
                     </Modal.Footer>
                 </Modal>
