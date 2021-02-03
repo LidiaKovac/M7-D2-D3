@@ -10,6 +10,7 @@ import notFound from "../assets/404.png";
 import parse from "html-react-parser";
 import Favorites from './Favorites'
 import { Button } from "react-bootstrap";
+import Loader from "./Loader";
 
 class Details extends React.Component {
   state = {
@@ -43,22 +44,7 @@ class Details extends React.Component {
         <div className="header"></div>
         <div className="job-list">
           {this.state.loading === true ? (
-            <div className='loader-wrap'>
-              <div class="lds-spinner">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            </div>
+            <Loader/>
           ) : this.state.jobs && this.state.jobs.length > 0 ? (
             this.state.jobs.map((job, index) => {
               return (
