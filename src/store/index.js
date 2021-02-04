@@ -8,8 +8,12 @@ import thunk from 'redux-thunk'
 const composedEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const initialState = {
-  fav: [],
-  jobs: []
+  fav: {
+    data: []
+  },
+  jobs: {
+    data: []
+  }
 };
 
 const bigReducer = combineReducers({ fav: favReducer, jobs: jobReducer })

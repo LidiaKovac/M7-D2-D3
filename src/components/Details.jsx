@@ -11,28 +11,24 @@ import parse from "html-react-parser";
 import Favorites from "./Favorites";
 import { Button } from "react-bootstrap";
 import Loader from "./Loader";
-
+const mapStateToProps = (state) => state;
 const mapDispatchToProps = (dispatch) => ({
-  getDataAsync: (pos, loc) => dispatch(async () => {
-    console.log("starting")
-    await this.setState({
-      location: this.props.location,
-      position: this.props.position,
-    });
-    this.setState({ loading: true });
-    let response = await fetch(
-      `https://cors-anywhere-lk.herokuapp.com/https://jobs.github.com/positions.json?description=${pos}&full_time=true&location=${loc}`
-    );
-    let jobs = await response.json();
-    this.setState({ loading: false });
-    this.setState({ jobs: jobs });
-    dispatch({
-      type: "ADD_DATA",
-      payload: jobs,
-    });
-  }),
-});
+  getDataAsync: (pos, loc) =>
+    dispatch(async () => {
+      console.log("starting");
 
+      let response = await fetch(
+        `https://cors-anywhere-lk.herokuapp.com/https://jobs.github.com/positions.json?description=${pos}&full_time=true&location=${loc}`
+      );
+      let jobs = await response.json();
+
+      // this.setState({ jobs: jobs });
+      dispatch({
+        type: "ADD_DATA",
+        payload: jobs,
+      });
+    }),
+});
 
 class Details extends React.Component {
   state = {
@@ -42,7 +38,13 @@ class Details extends React.Component {
   };
   componentDidMount = async () => {
     console.log(this.props, this.props.position);
-    this.props.getDataAsync(this.props.position, this.props.location);
+    // await this.setState({
+    //   location: this.props.location,
+    //   position: this.props.position,
+    // });
+    this.setState({ loading: true });
+    await this.props.getDataAsync(this.props.position, this.props.location);
+    this.setState({ loading: false });
   };
 
   changeJob = (e) => {
@@ -58,12 +60,12 @@ class Details extends React.Component {
         <div className="job-list">
           {this.state.loading === true ? (
             <Loader />
-          ) : this.state.jobs && this.state.jobs.length > 0 ? (
-            this.state.jobs.map((job, index) => {
+          ) : this.props.jobs.data && this.props.jobs.data.length > 0 ? (
+            this.props.jobs.data.map((job, index) => {
               return (
                 <div
                   key={`${index}D`}
-                  onClick={() => this.setState({ selected: job })}
+                  onClick={() => this.setState({ selected: job }, ()=> console.log(job))}
                 >
                   {" "}
                   <Job job={job} showHeart={true} />{" "}
@@ -143,4 +145,4 @@ class Details extends React.Component {
     );
   }
 }
-export default connect(mapDispatchToProps)(Details);
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

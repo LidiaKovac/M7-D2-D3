@@ -26,7 +26,7 @@ class Favorites extends React.Component {
                         <Modal.Title className='modal-fav'>Your Favorites</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className='modal-fav'>
-                        {this.state.fav ? this.state.fav.map((job, index) => <Job
+                        {this.state.fav.data ? this.state.fav.data.map((job, index) => <Job
                             key={`${index}F`}
                             job={job}
                             showHeart={false}
