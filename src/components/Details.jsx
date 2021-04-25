@@ -37,7 +37,7 @@ class Details extends React.Component {
     location: "",
   };
   componentDidMount = async () => {
-    console.log(this.props, this.props.position);
+    console.log(this.props, this.props?.position);
     // await this.setState({
     //   location: this.props.location,
     //   position: this.props.position,
@@ -60,8 +60,8 @@ class Details extends React.Component {
         <div className="job-list">
           {this.state.loading === true ? (
             <Loader />
-          ) : this.props.jobs.data && this.props.jobs.data.length > 0 ? (
-            this.props.jobs.data.map((job, index) => {
+          ) : this.props?.jobs?.data && this.props?.jobs?.data?.length > 0 ? (
+            this.props?.jobs?.data?.map((job, index) => {
               return (
                 <div
                   key={`${index}D`}

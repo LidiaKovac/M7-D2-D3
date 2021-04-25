@@ -12,8 +12,8 @@ class Home extends React.Component {
     
   };
   componentDidUpdate() {
-    this.props.position(this.state.position);
-    this.props.locate(this.state.location);
+    this?.props?.position(this.state?.position);
+    this?.props?.locate(this.state?.location);
   }
   getPosition = (pos) => {
     this.setState({ position: pos });
